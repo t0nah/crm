@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="title">All Customers</h1>
+  <div class="columns is-multiline">
+    <% @customers.each do |customer| %>
+      <div class="column is-one-quarter">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <% if customer.image.attached? %>
+                <%= image_tag customer.image, class: "customer-image" %>
+              <% else %>
+                <%= image_tag "placeholder.png", class: "customer-image" %>
+              <% end %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-4"><%= customer.full_name %></p>
+            <p><%= customer.phone_number %></p>
+            <p><%= customer.email %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
